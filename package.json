@@ -1,0 +1,84 @@
+{
+  "name": "aspnet-scaffolder",
+  "displayName": "ASP.NET Core GUI Scaffolder",
+  "description": "GUI scaffolder for ASP.NET Core (MVC, Razor Pages, Identity, EF Core). Supports single and multi-project workspaces.",
+  "version": "0.0.2",
+  "publisher": "ahmadsb",
+  "repository": {
+    "url": "https://github.com/ahmdsb/aspnet-scaffolder"
+  },
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:aspnet.scaffold.controllerCrud",
+    "onCommand:aspnet.scaffold.razorCrud",
+    "onCommand:aspnet.scaffold.identity",
+    "onCommand:aspnet.scaffold.identitySelect",
+    "onCommand:aspnet.scaffold.emptyView",
+    "onCommand:aspnet.scaffold.emptyController",
+    "onCommand:aspnet.ef.addMigration",
+    "onCommand:aspnet.ef.updateDatabase",
+    "onCommand:aspnet.ef.listMigrations",
+    "onCommand:aspnet.ef.dbContextInfo"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "aspnet.scaffold.controllerCrud",
+        "title": "ASP.NET: Scaffold MVC Controller + Views (CRUD)"
+      },
+      {
+        "command": "aspnet.scaffold.razorCrud",
+        "title": "ASP.NET: Scaffold Razor Pages CRUD"
+      },
+      {
+        "command": "aspnet.scaffold.identity",
+        "title": "ASP.NET: Scaffold Identity UI (Full)"
+      },
+      {
+        "command": "aspnet.scaffold.identitySelect",
+        "title": "ASP.NET: Scaffold Identity UI (Select Files)"
+      },
+      {
+        "command": "aspnet.scaffold.emptyView",
+        "title": "ASP.NET: Scaffold Empty View"
+      },
+      {
+        "command": "aspnet.scaffold.emptyController",
+        "title": "ASP.NET: Scaffold Empty Controller"
+      },
+      {
+        "command": "aspnet.ef.addMigration",
+        "title": "EF Core: Add Migration"
+      },
+      {
+        "command": "aspnet.ef.updateDatabase",
+        "title": "EF Core: Update Database"
+      },
+      {
+        "command": "aspnet.ef.listMigrations",
+        "title": "EF Core: List Migrations"
+      },
+      {
+        "command": "aspnet.ef.dbContextInfo",
+        "title": "EF Core: DbContext Info"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/vscode": "^1.90.0",
+    "typescript": "^5.4.0",
+    "vsce": "^2.15.0"
+  }
+}
