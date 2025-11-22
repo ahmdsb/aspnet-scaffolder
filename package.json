@@ -2,7 +2,7 @@
   "name": "aspnet-scaffolder",
   "displayName": "ASP.NET Core GUI Scaffolder",
   "description": "GUI scaffolder for ASP.NET Core (MVC, Razor Pages, Identity, EF Core). Supports single and multi-project workspaces.",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "publisher": "ahmadsb",
   "repository": {
     "url": "https://github.com/ahmdsb/aspnet-scaffolder"
