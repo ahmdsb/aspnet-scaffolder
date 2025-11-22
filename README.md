@@ -36,18 +36,37 @@ Make sure you have:
 
 - [.NET SDK](https://dotnet.microsoft.com/) (6.0+ recommended, 8.0 works great)
 - ASP.NET Core project(s) with `.csproj`
-- The ASP.NET Core scaffolding tool:
+
+### Required global tools
+
+These tools must be installed globally:
 
 ```bash
 dotnet tool install -g dotnet-aspnet-codegenerator
-dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
-```
-
-For EF Core commands:
-
-```bash
 dotnet tool install -g dotnet-ef
 ```
+
+### Required NuGet packages (per project)
+
+Inside your ASP.NET Core project folder (where your `.csproj` lives), install:
+
+```bash
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
+dotnet add package Microsoft.EntityFrameworkCore.Design
+```
+
+### Quick sanity check
+
+You can verify that the tools are available with:
+
+```bash
+dotnet --info
+dotnet tool list -g
+dotnet aspnet-codegenerator --help
+dotnet-ef --help
+```
+
+If `dotnet-aspnet-codegenerator` or `dotnet-ef` do not appear or fail, install them using the commands above before using the extension.
 
 ---
 
@@ -195,7 +214,10 @@ Prompts:
 Runs something like:
 
 ```bash
-dotnet ef migrations add InitialCreate   --project "YourProject.csproj"   --startup-project "YourProject.csproj"   --context YourDbContext   # only if provided
+dotnet ef migrations add InitialCreate \
+  --project "YourProject.csproj" \
+  --startup-project "YourProject.csproj" \
+  --context YourDbContext   # only if provided
 ```
 
 ---
@@ -213,7 +235,10 @@ Prompts:
 Runs:
 
 ```bash
-dotnet ef database update   --project "YourProject.csproj"   --startup-project "YourProject.csproj"   TargetMigration   # only if provided
+dotnet ef database update \
+  --project "YourProject.csproj" \
+  --startup-project "YourProject.csproj" \
+  TargetMigration   # only if provided
 ```
 
 ---
@@ -231,7 +256,10 @@ Prompts:
 Runs:
 
 ```bash
-dotnet ef migrations list   --project "YourProject.csproj"   --startup-project "YourProject.csproj"   --context YourDbContext   # only if provided
+dotnet ef migrations list \
+  --project "YourProject.csproj" \
+  --startup-project "YourProject.csproj" \
+  --context YourDbContext   # only if provided
 ```
 
 ---
@@ -249,7 +277,10 @@ Prompts:
 Runs:
 
 ```bash
-dotnet ef dbcontext info   --project "YourProject.csproj"   --startup-project "YourProject.csproj"   --context YourDbContext   # only if provided
+dotnet ef dbcontext info \
+  --project "YourProject.csproj" \
+  --startup-project "YourProject.csproj" \
+  --context YourDbContext   # only if provided
 ```
 
 ---
@@ -309,7 +340,7 @@ If you want to install the extension manually in your own VS Code (without publi
    This will generate a file like:
 
    ```text
-   aspnet-scaffolder-0.0.2.vsix
+   aspnet-scaffolder-0.1.0-beta.1.vsix
    ```
 
 2. Install the `.vsix` into VS Code:
@@ -320,13 +351,13 @@ If you want to install the extension manually in your own VS Code (without publi
    - Go to the **Extensions** view.
    - Click the `⋯` (More Actions) button in the Extensions panel.
    - Choose **“Install from VSIX…”**.
-   - Select your `aspnet-scaffolder-0.0.2.vsix`.
+   - Select your `aspnet-scaffolder-0.1.0-beta.1.vsix`.
    - Confirm & reload VS Code if prompted.
 
    **Option B: from terminal**
 
    ```bash
-   code --install-extension aspnet-scaffolder-0.0.2.vsix
+   code --install-extension aspnet-scaffolder-0.1.0-beta.1.vsix
    ```
 
 3. After installation, open your ASP.NET Core project and use the commands via Command Palette.
